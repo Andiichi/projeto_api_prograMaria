@@ -1,5 +1,6 @@
 const express = require('express') //aqui estou iniciando o express
 const router = express.Router() //aqui estou config a primeira parte da rota
+const cors = require('cors') //aqui estou trazendo o pacote CORS, que permite consumir essa api no front-end
 
 const conectaBancoDeDados = require('./bancoDeDados.js') //fazendo a ligação com o arquivo 'bancoDeDados'
 conectaBancoDeDados() //chamando a função lá no arquivo 'bancoDeDados' que conecta ao mongoDB online
@@ -7,6 +8,7 @@ const Mulher = require('./mulherModel.js')
 
 const app = express()//aqui estou iniciando o app
 app.use(express.json())
+app.use(cors())
 const porta = 3333 //aqui estou criando a porta
 
 
